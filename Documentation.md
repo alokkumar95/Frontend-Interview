@@ -1,0 +1,2 @@
+#REDUCE FUNCTION
+
