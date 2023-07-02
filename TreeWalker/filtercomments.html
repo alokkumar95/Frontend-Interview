@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script src="filtercomments.js" defer></script> -->
+    <!-- This is comment in Head Tag -->
+    <style>
+      .hide {
+        transition: opacity 200ms, display 200ms;
+        visibility: visible;
+        opacity: 0;
+      }
+
+      .element {
+        display: block;
+        transition: all 2s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="element">Filter Comments</h1>
+    <button>Click</button>
+    <script>
+      const element = document.querySelector(".element");
+
+      const btn = document.querySelector("button");
+      btn.addEventListener("click", () => {
+        if (!element.classList.contains("hide")) {
+          element.classList.add("hide");
+        } else {
+          element.classList.add("hide");
+        }
+      });
+
+      //   const commentNodes = [];
+      //   const walker = document.createTreeWalker(
+      //     document.body,
+      //     NodeFilter.SHOW_COMMENT,
+      //     null,
+      //     false
+      //   );
+
+      //   while (walker.nextNode()) {
+      //     commentNodes.push(walker.currentNode);
+      //   }
+
+      //   console.log(commentNodes); // Output: [comment, comment]
+    </script>
+  </body>
+</html>

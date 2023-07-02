@@ -1,0 +1,28 @@
+.carousel{
+    display: flex;
+    width: 100%;
+    border: 1px solid salmon;
+
+}
+
+/* Add CSS transitions to the .carousel-item class */
+.carousel-item {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  display: none;
+}
+
+/* Add the .active class to the current slide to trigger the transition */
+.carousel-item.active {
+  opacity: 1;
+}
+
+
+.active{
+    display: block;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+}

@@ -1,0 +1,27 @@
+.chessboard{
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+td{
+    width: 90px;
+    height: 90px;
+    border: 1px solid black;
+}
+
+td:hover{
+    background-color: blue;
+}
+
+.black{
+    background-color: black;
+}
+
+.white{
+    background-color: white;
+}
+
+.blue{
+    background-color: blue;
+}
+

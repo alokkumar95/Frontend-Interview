@@ -1,0 +1,101 @@
+/* Define animation */
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+
+.sidebar {
+    width: 20%;
+    float: left;
+    margin-right: inherit;
+}
+
+.wrapper {
+    display: flex;
+    overflow: scroll;
+}
+
+
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+
+
+.notes-item {
+    animation: slide-in 1000ms;
+    animation-timing-function: cubic-bezier(.27, .88, .66, .2);
+    width: 100%;
+    height: 100px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    transition: transform 0.5s ease-out;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
+    /* make cursor move */
+    cursor: move;
+
+}
+
+.notes-item.over {
+    border: 3px dotted yellow;
+}
+
+.notes-item:hover {
+    transform: rotate(-5deg);
+
+}
+
+#editor-container{
+    width: 70%;
+    float: left;
+}
+
+#editor {
+    height: 375px;
+  
+}
+
+@media only screen and (max-width:768px) {
+    #editor-container{
+        width: 100%;
+    }
+
+    .sidebar{
+        width: 100%;
+    }
+    
+}
+
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+aside::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+aside {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+
+/* 3d */

@@ -1,0 +1,28 @@
+
+.parent-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parent{
+    background-color: aqua;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(255, 98, 0);
+    font-family: cursive;
+    font-size: 40px;
+    font-weight: 500;
+
+}
+
+input{
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+}
+

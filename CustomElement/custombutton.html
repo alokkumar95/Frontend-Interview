@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Define the custom element -->
+    <!-- <script>
+      class CustomElement extends HTMLElement {
+        constructor() {
+          super();
+        }
+
+        connectedCallback() {
+          const childElement = document.createElement("button");
+          childElement.textContent = this.getAttribute('text');
+          this.appendChild(childElement);
+        }
+      }
+      customElements.define("custom-button", CustomElement);
+    </script> -->
+
+    <!-- Use the custom element -->
+    <custom-button text="Click me!">jj</custom-button>
+  </body>
+</html>

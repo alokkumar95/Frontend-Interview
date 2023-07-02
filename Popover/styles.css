@@ -1,0 +1,20 @@
+
+.popover-container{
+    position: relative;
+    border: 1px solid pink;
+    width: 500px;
+}
+
+.show_popover{
+    display: block!important;
+    position: absolute;
+    left: 20px;
+    z-index: 100;
+    background-color: aqua;
+    color: black;
+}
+
+.popover{
+    display: none;
+}
+
