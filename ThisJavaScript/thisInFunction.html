@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>This in function</p>
+    <script>
+      (function logThisNonStrictMode() {
+        console.log("This in function in Non strict mode " + this); // [object Window]
+      })();
+
+      +(function logThisStrictMode() {
+        "use strict";
+        console.log("This in function in strict mode " + this); // undefined
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="callback">
+      <p class="forEachMethod"></p>
+      <p class="map"></p>
+    </div>
+    <script>
+      const array = [45, 23, 49, 12];
+
+      function valueOfThis() {
+        "use strict";
+        console.log(this);
+      }
+
+      array.map(valueOfThis); // undefined,undefined,undefined,undefined
+      array.forEach(valueOfThis); // undefined, undefined, undefined, undefined
+    </script>
+  </body>
+</html>
