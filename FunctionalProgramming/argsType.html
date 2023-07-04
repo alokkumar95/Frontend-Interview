@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>What is type of args</h1>
+    <script>
+      function f(...args) {
+        const p = document.createElement("p");
+        p.textContent = `${typeof args}, ${args}`;
+        document.body.appendChild(p);
+
+        console.log(args);//[1,2]
+        console.log(typeof args) // object
+      }
+
+      f(1, 2);
+    </script>
+  </body>
+</html>

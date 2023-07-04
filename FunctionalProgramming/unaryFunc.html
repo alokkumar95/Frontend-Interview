@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Unary func</h1>
+    <script>
+        function unary(arg){
+            "use strict"
+            console.log(arg,this);// 1 undefined
+
+            const p = document.createElement('p');
+            p.textContent = `${arg},${this} in strict mode`;
+            document.body.appendChild(p)
+        }
+
+        unary(1,2,3);
+
+        function binary(arg1,arg2){
+            // "use strict"
+            console.log(arg1,arg2,this);// 1 2 undefined
+            const p = document.createElement('p');
+            p.textContent = `${arg1} ${arg2},${this} in non-strict mode binary`;
+            document.body.appendChild(p)
+        }
+
+        binary(1,2,3);
+
+       
+    </script>
+</body>
+</html>
