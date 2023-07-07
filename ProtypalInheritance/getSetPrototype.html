@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Get Set Prototype of an Object</h1>
+    <script>
+    
+
+    // object
+      let animal = {
+        eats: true,
+        walk() {
+          console.log("animal walk");
+        },
+      };
+
+      let rabbit = {
+        __proto: animal,
+        walk() {
+          console.log("rabbit jump");
+        },
+      };
+      // try to access eat property of animal on rabbit
+      console.log("Does rabbit eat?", rabbit.eats); // undefined
+
+      //  set prototype of rabbit to animal
+      Object.setPrototypeOf(rabbit, animal);
+
+      // try to access eat property of animal on rabbit after setting prototype
+      console.log("Does rabbit eat? after setting prototype", rabbit.eats); // true
+
+      // get prototype of rabbit
+      console.log(
+        "Prototype of rabbit",
+        Object.getPrototypeOf(rabbit),
+        rabbit.__proto__
+      ); // {eats: true, walk: ƒ}
+
+      // what if we try to access walk method on rabbit
+      rabbit.walk();
+
+
+      // Function object
+      function Tree(fruit){
+        this.fruit = fruit;
+      }
+
+      // 
+      console.log("getPrototypeOf"+Object.getPrototypeOf(Tree)+Object.getPrototypeOf(animal));// getPrototypeOffunction () { [native code] }[object Object]
+
+
+      let mango = new Tree('mango');
+      console.log("Mango prototype"+Object.getPrototypeOf(mango),mango.__proto__)//Mango prototype[object Object] {constructor: ƒ}
+
+
+    </script>
+  </body>
+</html>
