@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Simple Curry</h1>
+    <script>
+      //   function sum(a) {
+      //     return function (b) {
+      //       return function (c) {
+      //         return function (d) {
+      //           return a + b + c + d;
+      //         };
+      //       };
+      //     };
+      //   }
+
+      //   console.log(sum(2)(3)(4)(5));
+      //   const f1 = sum(2);
+      //   const f2 = f1(3);
+      //   const f3 = f2(4);
+      //   console.log("F", f3(5));
+
+      //   function add(...args) {
+      //     return function (...args1) {
+      //       if (args1.length === 0) return args.reduce((x, y) => x + y, 0);
+      //       return add.apply(this, args.concat(args1));
+      //     };
+      //   }
+
+      //   const g = add(1, 2)(3)(4, 5, 6)(6, 7)(9);
+      //   //   const  g1= add()()();
+
+      //   console.log("------", g());
+
+      //   function add1(...args) {
+      //     let a = args.reduce((a, b) => a + b, 0);
+      //     return function (...args) {
+      //       let b = args.reduce((a, b) => a + b, 0);
+      //       if (b) {
+      //         return add(a + b);
+      //       }
+      //       return a;
+      //     };
+      //   }
+
+      //   console.log(add1()());
+
+      function curry(func) {
+        return function curried(...args) {
+          return function (...args1) {
+            if (args1.length === 0) return +func.apply(this, args);
+
+            return curried.apply(this, [...args, ...args1]);
+          };
+        };
+      }
+
+      function multiply(...numbers) {
+        return numbers.reduce((a, b) => a * b, 1);
+      }
+      const curried = curry(multiply);
+
+      const curriedMultiply = curry(multiply);
+      const multiplyByThree = curriedMultiply(3);
+      console.log(multiplyByThree())
+
+    </script>
+  </body>
+</html>

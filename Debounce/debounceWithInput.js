@@ -5,11 +5,12 @@ function updatedDebounceValue(val) {
   p.innerText = val;
 }
 
-const debounce = (callback, time, val) => {
-  window.clearTimeout(debounceTimer);
-  debounceTimer = setTimeout(callback, time, val);
+const debounce = (callback, delay, val) => {
+  window.clearTimeout(debounceTimer);// clear  timeOut if new 
+  //setTimeout is  created within delay, if not cleared then after delay the deboucing stop working and as you type in input, it will update simultaneouly
+  debounceTimer = setTimeout(callback, delay, val);
 };
 
 document.getElementById("name").addEventListener("input", function (e) {
-  debounce(updatedDebounceValue, 250, e.target.value);
+  debounce(updatedDebounceValue, 3000, e.target.value);
 });
