@@ -1,0 +1,15 @@
+.accordion-icon{
+    border: solid currentcolor;
+    height: 8px;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    transform: translateY(-2px) rotate(45deg);
+    width: 8px;
+}
+.accordion-icon__rotated{
+    transform: translateY(-2px) rotate(-135deg);
+}
+
+.content__hidden{
+    display: none;
+}
