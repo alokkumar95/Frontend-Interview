@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contains method</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+      }
+
+      .modal {
+        width: 50%;
+        height: 60vh;
+        background: rgb(255, 240, 211);
+        padding: 30px 0 30px 0;
+      }
+
+      .title_wrapper, .body_wrapper{
+        padding: 5px 20px 5px 20px;
+        border: 1px solid black;
+      }
+
+      button{
+        width: 100px;
+        height: 30px;
+        border: 1px solid salmon;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="modal">
+        <p>Parent Element</p>
+      <div class="title_wrapper">
+        <div class="title">Modal Title</div>
+      </div>
+
+      <hr />
+      <div class="body_wrapper">
+        <div class="body">
+          <p>Descendant Element</p>
+          <button class="descendant">Change</button>
+        </div>
+      </div>
+    </div>
+    <button class="neighbor">Neighbor</button>
+    <script>
+        const modal = document.querySelector('.modal');
+        const descendant = document.querySelector('.descendant');
+        const neighbor = document.querySelector('.neighbor');
+
+        // contains method a node
+
+        console.log("Descendant ",modal.contains(descendant));
+
+        console.log("Neighbor ", modal.contains(neighbor))
+
+    </script>
+  </body>
+</html>
