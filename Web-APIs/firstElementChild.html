@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Demo of firstElementChild Property</h1>
+
+    <ul id="list">
+      <li>First</li>
+      <li>Second</li>
+      <li>Third</li>
+    </ul>
+
+    <button onClick = "highlightFirstElement()">Click</button>
+    
+    <script>
+        function highlightFirstElement(){
+
+            const list = document.getElementById('list');
+            const firstELement = list.firstElementChild;
+
+            firstELement.style.background = 'yellow'
+        }
+     
+    </script>
+  </body>
+</html>
