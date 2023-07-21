@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        height: 200vh;
+        width: 200vw;
+      }
+
+      div#element {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 500px;
+        height: 500px;
+        border: 5px dashed rebeccapurple;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="element">Element</div>
+    <script>
+        function getRect(){
+            const elem = document.getElementById('element');
+            const rect = elem.getBoundingClientRect();
+            elem.textContent = "";
+
+            for(let prop in rect){
+                if(typeof rect[prop] !=='function'){
+                    const p = document.createElement('p');
+                    p.textContent = prop + ":" + rect[prop];
+                    elem.appendChild(p)
+                }
+            }
+
+            console.log("Bounry rect",rect)
+        }
+
+        document.addEventListener('scroll',getRect)
+
+        getRect()
+ 
+    </script>
+  </body>
+</html>
