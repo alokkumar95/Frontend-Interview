@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .wrapper {
+        width: 60%;
+        margin: auto;
+      }
+      h1 {
+        text-align: center;
+      }
+      div.items {
+        width: 100;
+        border: 1px solid #bab5b5;
+        height: 500px;
+        display: flex;
+        align-items: flex-end;
+      }
+      div.item {
+        width: 100px;
+        height: 100px;
+        background: orange;
+        margin: 0 20px;
+      }
+      button {
+        margin-top: 20px;
+      }
+
+      .u {
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Request Animation Frame - 1</h1>
+      <div class="items">
+        <div class="item" id="item1">1</div>
+        <div class="item">2</div>
+      </div>
+      <button id="start">start</button>
+      <button id="stop">stop</button>
+    </div>
+    <script>
+      var globalID;
+      const lists = document.querySelectorAll(".item");
+      const items = document.querySelector(".items");
+      const ele = document.getElementById("item1");
+
+
+      function repeatOften() {
+        const currHeight = ele.offsetHeight
+        if(currHeight>=500) return; 
+        console.log("curr",currHeight)
+        const targetHeight = currHeight + 10; // increment height by 10 pixels each iteration
+        ele.style.height = `${targetHeight}px`; // set height to target height
+
+        globalID = requestAnimationFrame(repeatOften); // schedule next iteration
+
+        
+
+      
+      }
+
+      // requestAnimationFrame(repeatOften);
+
+      document.getElementById("start").addEventListener("click", function () {
+        requestAnimationFrame(repeatOften);
+      });
+
+      document.getElementById("stop").addEventListener("click", function () {
+        cancelAnimationFrame(globalID);
+      });
+    </script>
+  </body>
+</html>
