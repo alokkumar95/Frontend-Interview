@@ -19,13 +19,22 @@
       };
 
       let rabbit = {
-        __proto: animal,
         walk() {
           console.log("rabbit jump");
         },
       };
       // try to access eat property of animal on rabbit
       console.log("Does rabbit eat?", rabbit.eats); // undefined
+
+      let rabbit1 = {
+        __proto__: animal,
+        walk() {
+          console.log("rabbit jump");
+        },
+      };
+
+      // try to access eat property of animal on rabbit
+      console.log("Does rabbit1 eat?", rabbit1.eats); // true
 
       //  set prototype of rabbit to animal
       Object.setPrototypeOf(rabbit, animal);
@@ -38,7 +47,7 @@
         "Prototype of rabbit",
         Object.getPrototypeOf(rabbit),
         rabbit.__proto__
-      ); // {eats: true, walk: ƒ}
+      ); // {eats: true, walk: ƒ} {eats: true, walk: ƒ}
 
       // what if we try to access walk method on rabbit
       rabbit.walk();
@@ -50,7 +59,7 @@
       }
 
       // 
-      console.log("getPrototypeOf"+Object.getPrototypeOf(Tree)+Object.getPrototypeOf(animal));// getPrototypeOffunction () { [native code] }[object Object]
+      console.log("getPrototypeOf--"+Object.getPrototypeOf(Tree));// getPrototypeOffunction () { [native code] }[object Object]
 
 
       let mango = new Tree('mango');
