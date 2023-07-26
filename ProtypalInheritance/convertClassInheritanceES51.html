@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Convert class based inheritance code given below to ES5 code</h1>
+    <script>
+      // example class based inheritance
+      // class Parent{
+      //     constructor(name){
+      //         this.name = name;
+      //     }
+      //     getName(){
+      //         return `${this.name} from ${this}`;
+      //     }
+      // }
+
+      // class Children extends Parent{
+      //     constructor(props){
+      //         super(props)
+      //     }
+      // }
+
+      // const parent1 = new Children('alok-parent');
+      // console.log("Name of parent1 --",parent1.getName());
+
+      // const child1 = new Children('alok-child');
+      // console.log("Name of child1 --",child1.getName());
+
+      function ParentCopy(name) {
+        this.name = name;
+        this.getName = function () {
+          return `${this.name} from ${this}`;
+        };
+      }
+
+      ParentCopy.prototype.getAddress = function (address) {
+        return this.name + "---" + address;
+      };
+
+      const parentCopy = new ParentCopy("alok-parentcopy");
+      console.log("Parent copy address", parentCopy.getAddress("mokama")); //Parent copy address alok-parentcopy---mokama
+
+      function ChildrenCopy(name) {
+        ParentCopy.call(this, name);
+      }
+
+      console.log("##Prototype of ChildrebCopy##",ChildrenCopy.prototype)
+
+   
+      ChildrenCopy.prototype =Object.create(ParentCopy.prototype);
+
+      const child1Copy = new ChildrenCopy("child1name");
+      console.log(
+        "Get name of childcopy",
+        child1Copy.getName(),
+        ChildrenCopy.__proto__
+      );
+      console.log(
+        "Get address of childcopy",
+        child1Copy.getAddress("rampur"),
+        ChildrenCopy.__proto__
+      );
+    </script>
+  </body>
+</html>
