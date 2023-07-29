@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        font-size: large;
+      }
+
+      ol{
+        border: 1px solid #e0deef;
+        border-radius: 20px;
+        width: 20%;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+
+      ol li {
+        background: transparent; /* Set the background of li to transparent */
+        color: black; /* Set the text color of li to black */
+        padding: 5px; /* Add some padding to the li element for better presentation */
+       
+      }
+
+      /* Styling the list item on hover */
+      ol li span:hover {
+        background: #5046e5; /* Set the background color on hover */
+        color: white; /* Set the text color on hover */
+        width: 70%;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Demo of lastElementChild Property</h1>
+    <p>List of ML FrameWork</p>
+    <ol id="list">
+      <li><span>Segment</span></li>
+      <li><span>ImageBind</span></li>
+      <li><span>Dino</span></li>
+    </ol>
+    <button onClick="changeBackground()">Click</button>
+    <script>
+        const list = document.getElementById('list');
+
+        function changeBackground(){
+            const lastItem = list.lastElementChild // property;
+            lastItem.style.background = 'yellow'
+        }
+      
+    </script>
+  </body>
+</html>

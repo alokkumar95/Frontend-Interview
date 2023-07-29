@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .wrapper {
+        width: 50%;
+        margin: auto;
+        height: 100vh;
+      }
+      .client {
+        height: 500px;
+        border: 2px solid #d9d8d1;
+        padding: 10px;
+        margin: 50px;
+        width: 100%;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="client">
+        <h1>clientHeight Demo</h1>
+        <ol>
+          <li><h3>clientHeight is <i style="background-color: #7affe1;">read-only property</i></h3></li>
+          <li>
+            <h3>
+              clientHeight returns viewable height of an elements in pixels
+            </h3>
+          </li>
+          <li>
+            <h3>
+              what does it include
+              <ul>
+                <li>height ✅</li>
+                <li>padding ✅</li>
+              </ul>
+            </h3>
+          </li>
+          <li>
+            <h3>
+              what does it not include
+              <ul>
+                <li>margin ❌</li>
+                <li>border ❌</li>
+              </ul>
+            </h3>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <script>
+      const h1 = document.querySelector("h1");
+      h1.style.textAlign = "center";
+
+      const client = document.querySelector('.client');
+
+      console.log("Client Height : ",client.clientHeight)
+    </script>
+  </body>
+</html>
