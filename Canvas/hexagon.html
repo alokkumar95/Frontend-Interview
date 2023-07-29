@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid red;
+      }
+
+      .wrapper {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <canvas></canvas>
+    </div>
+    <script>
+      const canvas = document.querySelector("canvas");
+
+      // set canvas width
+      canvas.width = 400;
+
+      // set canvas height
+      canvas.height = 200;
+
+      // get context
+      const ctx = canvas.getContext("2d");
+      const cx = 200;
+      const cy = 100;
+
+      ctx.translate(cx,cy); // Shift the origin to (cx,cy)
+
+      ctx.beginPath()
+      
+      ctx.moveTo(50*Math.cos(0),50*Math.sin(0));// set the starting point of the path
+      ctx.arc(50*Math.cos(0), 50*Math.sin(0), 2, 0, 2 * Math.PI);
+
+      ctx.lineTo(50 * Math.cos(60), 50 * Math.sin(60));
+      ctx.arc(50*Math.cos(60), 50*Math.sin(60), 2, 0, 2 * Math.PI);
+    //   ctx.lineTo(120 * Math.cos(120), 120 * Math.sin(120));
+      ctx.closePath();
+      ctx.stroke();
+    </script>
+  </body>
+</html>
