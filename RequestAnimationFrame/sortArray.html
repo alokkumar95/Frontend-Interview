@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      * {
+        font-family: "Inter", sans-serif;
+        /* padding: 30px; */
+      }
+
+      body {
+        padding: 30px;
+      }
+
+      .handler {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="text-3xl font-bold">Hello world!</h1>
+
+    <div class="wrapper flex">
+      <div
+        class="item w-[50px] h-[50px] border-1 flex justify-center items-center bg-teal-200 ml-[1px]"
+      >
+        <p class="text-center">23</p>
+      </div>
+      <div
+        class="item w-[50px] h-[50px] border-1 flex justify-center items-center bg-teal-200 ml-[1px]"
+      >
+        <p class="text-center">24</p>
+      </div>
+    </div>
+    <div class="handler">
+      <button id="start" class="border-2">start</button>
+      <button id="stop" class="border-2">stop</button>
+    </div>
+
+    <script>
+      let globalID = null;
+      let count = 0;
+      const items = document.getElementsByClassName("item");
+      for (const item of Array.from(items)) {
+        //   item.style.transform = `translateX(-${count}px)`;
+        console.log("client width", item.clientWidth);
+      }
+      function onAnimationEnd() {
+        for (let i = 0; i < items.length; i++) {
+          console.log("endeeedddddd");
+          items[i].style.transform = ""; // Remove the transform property
+        }
+      }
+
+      function repeatOften() {
+        if (count < 50) {
+          //   console.log("^^^^^^^^^^(((9)))");
+          globalID = requestAnimationFrame(repeatOften);
+        }
+        count++;
+
+        for (let i = 0; i < items.length; i++) {
+          if (i % 2 === 0) {
+            items[i].style.transform = `translateX(${count}px)`;
+          } else {
+            items[i].style.transform = `translateX(-${count}px)`;
+          }
+        }
+
+        console.log(count);
+      }
+
+      document.getElementById("start").addEventListener("click", function () {
+        requestAnimationFrame(repeatOften);
+      });
+
+      document.getElementById("stop").addEventListener("click", function () {
+        cancelAnimationFrame(globalID);
+      });
+    </script>
+  </body>
+</html>

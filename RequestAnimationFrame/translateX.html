@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      * {
+        font-family: "Inter", sans-serif;
+        /* padding: 30px; */
+      }
+
+      body {
+        padding: 30px;
+      }
+
+      .handler {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="text-3xl font-bold">Hello world!</h1>
+
+    <div class="wrapper flex">
+      <div
+        id="item"
+        class="w-[50px] h-[50px] border-1 flex justify-center items-center bg-teal-200"
+      >
+        <p class="text-center">23</p>
+      </div>
+    </div>
+    <div class="handler">
+      <button id="start" class="border-2">start</button>
+      <button id="stop" class="border-2">stop</button>
+    </div>
+
+    <script>
+      let globalID = null;
+      let count = 0;
+      const item = document.getElementById("item");
+
+      function repeatOften() {
+        if (count < 100) {
+          console.log("^^^^^^^^^^(((9)))");
+          globalID = requestAnimationFrame(repeatOften);
+        }
+        count++;
+
+        item.style.transform = `translateX(${count}px)`;
+        console.log(count);
+      }
+
+      //   repeatOften()
+
+      document.getElementById("start").addEventListener("click", function () {
+        requestAnimationFrame(repeatOften);
+      });
+
+      document.getElementById("stop").addEventListener("click", function () {
+        cancelAnimationFrame(globalID);
+      });
+    </script>
+  </body>
+</html>
