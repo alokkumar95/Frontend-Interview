@@ -25,5 +25,14 @@ The maifest is included using <link> element in the app's HTML
 > If the web app have more than one page, every page must reference the manifest in this way.
 
 
+## Service Worker
+1. PWA to be installable, it must include a service worker with a fetch event handler that provides a basic offline experience.
+
+
+## Summary  - Minimum requirements for PWA to be installable
+1. It must have manifest json file.
+2. It should be served on HTTPS server.
+3. It must include a service worker with a fetch event handler.
+
 
 
