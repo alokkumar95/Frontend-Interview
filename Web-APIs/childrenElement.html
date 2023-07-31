@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      @keyframes slide-in {
+        from {
+          transform: translateX(-100%);
+        }
+
+        to {
+          transform: translateX(0%);
+        }
+      }
+
+      .item {
+        background: slateblue;
+        color: white;
+        padding: 20px;
+        margin: 20px 10px;
+        display: none;
+      }
+
+      .item-animation {
+        animation: slide-in 1000ms;
+        display: block;
+      }
+
+      button {
+        background: slateblue;
+        color: white;
+        width: 100px;
+        height: 40px;
+        border: 0;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h2>Demo of children property on element</h2>
+      <div class="list">
+        <div class="item"><h3>Children is a read-only property</h3></div>
+        <div class="item">
+          <h3>
+            It returns a <i>live</i> HTMLCollection which contains all the child
+            elements of the element upon which it was called
+          </h3>
+        </div>
+        <div class="item"><h3>element.children</h3></div>
+      </div>
+      <button>Slide Show</button>
+    </div>
+    <script>
+      const parent = document.querySelector('.list');
+      const childrenItems = parent.children;
+      
+
+      function* generator() {
+        for (let i = 0; i < parent.children.length; i++) {
+          yield parent.children[i].classList.add("item-animation");
+        }
+      }
+
+      const gen = generator(); // "Generator { }"
+
+      const button = document.querySelector('button')
+
+      button.addEventListener("click", () => {
+        console.log(gen.next().value);
+      });
+    </script>
+  </body>
+</html>
