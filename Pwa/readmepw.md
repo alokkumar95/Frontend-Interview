@@ -35,4 +35,15 @@ The maifest is included using <link> element in the app's HTML
 3. It must include a service worker with a fetch event handler.
 
 
+### Service Worker in Detail - Heart of PWA
+
+## What is service worker
+1. Service worker basically acts as proxy servers that sits between the web application, the browser, and the network(when available).
+
+## Lifecycle of a worker
+1. Registration - In this phase Browser recognized service worker.
+2. Installation - Service worker is installed, but doesn't actually control anything on the page yet. It is a phase to cache assets for offline use.
+3. Activation - Service worker installed and activated. Good place to manage old cached assets and update service worker.
+4. Full Page control - the service worker has been updated and has full control over any pages that fall under its scope.
+
 
