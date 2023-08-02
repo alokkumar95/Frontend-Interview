@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Example 1 -</h1>
+    <script>
+        function handleFulfil(value){
+            console.log("Handle fulfil---",value);
+        }
+
+        function handleReject(error){
+            console.log("Handle Reject---",error);
+        }
+
+        const myPromise = new Promise((resolve,reject)=>{
+            console.log("First line")
+            return;
+        })
+
+// myPromise is in pending state
+        myPromise.then(handleFulfil,handleReject)
+    </script>
+</body>
+</html>
