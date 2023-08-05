@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Hello Demo of Promise in For Loop</h2>
+    <script>
+      const p_resolve = Promise.resolve("Resolved Immediately");
+
+      const p_100 = new Promise((resolve, reject) => {
+        setTimeout(resolve("resolved_p_100"), 100);
+      });
+
+      const p_200 = new Promise((resolve, reject) => {
+        setTimeout(resolve("resolved_p_200"), 200);
+      });
+
+      const promises = [p_100, p_resolve, p_200];
+
+      //   async function test() {
+      //     const l = promises.length;
+
+      //     return new Promise((resolve, reject) => {
+      //       for (let i = 0; i < l; i++) {
+
+      //         try{
+      //             resolve
+
+      //         }catch(err){
+
+      //         }
+      //       }
+      //     });
+      //   }
+
+      // test break statement
+      async function testBreak(iterable) {
+        const l = iterable.length;
+
+        for (let i = 0; i < l; i++) {
+          const val = await iterable[i];
+          console.log("Val in for loop with break", val); // first item as after that it breaks
+          break;
+        }
+      }
+
+    //   testBreak(promises)
+    //     .then((data) => console.log("Data--", data))
+    //     .catch((err) => console.log("Err--", err));
+
+      // test resolve
+       async function testResolve(iterable) {
+        const l = iterable.length;
+
+        return new Promise(async (resolve, reject) => {
+          for (let i = 0; i < l; i++) {
+            const val = await iterable[i];
+            console.log("Val in for loop with resolve", val);
+            resolve(val)
+          }
+        });
+      }
+
+      testResolve(promises)
+        .then((data) => console.log("Data--", data))
+        .catch((err) => console.log("Err--", err));
+    </script>
+  </body>
+</html>
