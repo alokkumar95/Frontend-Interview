@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Algorithms</h2>
+    <script>
+      // function helperSym(arg1, arg2) {
+      //   const arg1Set = new Set(arg1);
+      //   const arg2Set = new Set(arg2);
+
+      //   const results = [];
+
+      //   // look whether item of arg1Set exists in arg2Set
+      //   arg1Set.forEach((item) => {
+      //     //item not in other set then push in results
+      //     if (!arg2Set.has(item)) {
+      //       results.push(item);
+      //     }
+      //   });
+
+      //   // look whether item of arg2Set exists in arg1Set
+      //   arg2Set.forEach((item) => {
+      //     //item not in other set then push in results
+      //     if (!arg1Set.has(item)) {
+      //       results.push(item);
+      //     }
+      //   });
+
+      //   return results;
+      // }
+
+      // function sym(...args) {
+      //   let results = [...helperSym(args[0], args[1])];
+      //   let final;
+
+      //   for (let i = 2; i < args.length; i++) {
+      //     results = [...helperSym(results, args[i])];
+      //   }
+      //   return results;
+      // }
+
+
+      // optimized version
+      function sym(...args) {
+        return Array.from(args.reduce((accumulator, currentvalue) => {
+
+          const arg1Set = accumulator;
+          const arg2Set = new Set(currentvalue)
+          // look whether item of arg1Set exists in arg2Set
+          arg2Set.forEach((item) => {
+            //item not in other set then push in results
+            if (!arg1Set.has(item)) {
+              // O(1)
+              arg1Set.add(item);
+            }else{
+              // O(1)
+              arg1Set.delete(item)
+            }
+          });
+          return arg1Set;
+        }, new Set()));
+      }
+
+      console.log("ans---", sym([1, 2, 3], [5, 2, 1, 4],[3,6,4]));
+    </script>
+  </body>
+</html>
