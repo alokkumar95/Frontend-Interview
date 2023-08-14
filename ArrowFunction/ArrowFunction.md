@@ -1,0 +1,2 @@
+## What is Arrow Function
+ans: An ArrowFunction does not define local bindings for arguments, super, this, or new.target. Any reference to arguments, super, this, or new.target within an ArrowFunction must resolve to binding in a lexically enclosing environment.
