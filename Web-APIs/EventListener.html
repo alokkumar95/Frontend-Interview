@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener Demo</title>
+</head>
+<body>
+    <div class="box">
+        <p>Counter - <span id="value">0</span></p>
+        <button id="increment">Increment</button>
+        <button id = "decrement">Decrement</button>
+    </div>
+    <script>
+        const increment = document.getElementById('increment');
+        const decrement = document.getElementById('decrement');
+        const val = document.getElementById('value');
+    
+        let currentValue = Number(val.textContent);
+
+        function handler(){
+            currentValue = currentValue + 1;
+            val.textContent = currentValue;
+        }
+        increment.addEventListener('click',handler)
+        decrement.addEventListener('click',()=>{
+            currentValue = currentValue - 1;
+            val.textContent = currentValue;
+        })
+
+        // increment.removeEventListener('click',handler)
+
+
+    </script>
+    
+</body>
+</html>
