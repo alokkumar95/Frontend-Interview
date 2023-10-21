@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLS</title>
+  </head>
+  <body>
+    <h3>Beautiful Flower</h3>
+    <p>How TO test CLS- disable cache and set network 3g low</p>
+    <img src="../flower.jpg" alt="flower" />
+    <p>
+      When image dimensions are not specified, the browser renders your images
+      using their original/full/natural size, and/or using CSS (applied to the
+      image itself or its parent container). The problem here is the page space
+      for the image can only be allocated once the image has been downloaded.
+      The image itself will need some page space to be displayed when it’s
+      finished downloading. The end result is your page content constantly gets
+      shifted about as the browser fetches and renders images.
+    </p>
+    <button>Click</button>
+  </body>
+</html>
