@@ -27,16 +27,22 @@ int main(){
 
     // Adjacency List for a directed Graph
     vector<int> adj[n];
-    adj[0] = {1,2,3};
-    adj[1] = {4};
-    adj[2] = {};
-    adj[3] = {2};
-    adj[4] = {};
+    // adj[0] = {1,2,3};
+    // adj[1] = {4};
+    // adj[2] = {};
+    // adj[3] = {2};
+    // adj[4] = {};
+
+    adj[0] = {1};
+    adj[1] = {};
+    adj[2] = {0,3,4};
+    adj[3] = {};
+    adj[4] = {3};
 
     // initialize the visited array with false;
     vector<bool> visited(n,false);
 
     //Let's start the DFS from node 0
-    dfs(adj,0,visited);
+    dfs(adj,2,visited);
 
 }
