@@ -1,0 +1,64 @@
+/* 
+*{
+ 
+} */
+
+html,body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subject{
+    /* 16:9 */
+    width: 320px;
+    height: 180px;
+    border-radius: 3px;
+    border-radius: 3px;
+    position: relative;
+    animation-name: wipe-in-bottom-right;
+    
+    /* transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0,0,0.3,1); */
+
+}
+
+.subject:hover{
+    transform: scale(1);
+}
+
+.subject img{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.subject .upper{
+    background: grey;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+@keyframes wipe-in-bottom-right {
+    from {
+      clip-path: polygon(0 0, 0 0, 0 0, 0 50%);
+    }
+    to {
+      clip-path: polygon(-50% 0%, 200% 0, 0 200%, 0 -50%);
+    }
+  }
+  
+  [transition-style="in:wipe:bottom-right"] {
+    animation: 2.5s cubic-bezier(.25, 1, .30, 1) wipe-in-bottom-right both;
+  }

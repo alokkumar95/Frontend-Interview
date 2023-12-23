@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+}
+
+.target{
+   width: 500px;
+   height: 20px;
+   background-color: aqua;
+   transition-property: transform;
+   transition-duration: 3s;
+   transform-origin: 0% 50%;
+}
+
+.target:hover{
+    background-color: red;
+    transform: rotate(1080deg);
+
+    
+}
