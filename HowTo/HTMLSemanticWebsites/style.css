@@ -1,0 +1,27 @@
+:root{
+    --dark-blue: #002ead;
+    --theme-color: #0a0a23;
+    --header-height: 80px;
+
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.site-wrapper{
+
+}
+
+nav{
+    background-color: var(--theme-color);
+    color: #fff;
+    height: var(--header-height);
+
+}
+
+main{
+
+}
