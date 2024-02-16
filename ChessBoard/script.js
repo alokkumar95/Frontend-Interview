@@ -1,19 +1,23 @@
 const table = document.querySelector(".chessboard");
 
-// table.addEventListener('click',function(event){
-
-//     console.log("---",event.target,event.currentTarget.rows,event)
-
-// })
-
-// Get a reference to the table element
-
 function colorDiagonal(x, y) {
+  // move left(decrease column) and up(decrease row)
   for (i = x - 1,j=y-1; i >= 0&&j>=0; i--,j--) {
     table.rows[i].cells[j].classList.toggle("blue");
   }
 
+  // move right(increase column) and up(decrease row)
   for (i = x - 1,j=y+1; i >= 0&&j<8; i--,j++) {
+    table.rows[i].cells[j].classList.toggle("blue");
+  }
+
+  // move left(decrease column) and down(increase row)
+  for (i = x + 1,j=y-1; i < 8&&j>=0; i++,j--) {
+    table.rows[i].cells[j].classList.toggle("blue");
+  }
+ 
+  // move right(increase column) and down(increase row)
+  for (i = x + 1,j=y+1; i < 8&&j<8; i++,j++) {
     table.rows[i].cells[j].classList.toggle("blue");
   }
 }
@@ -22,15 +26,15 @@ function colorDiagonal(x, y) {
 for (let i = 0; i < table.rows.length; i++) {
   for (let j = 0; j < table.rows[i].cells.length; j++) {
     const cell = table.rows[i].cells[j];
-    // Check if the cell's text content matches the content we're looking for
+
+    // apply blue color on hover after calling colorDiagonal function
     cell.addEventListener("mouseenter", function (event) {
-      console.log("8888", cell, event.target, i, j);
       colorDiagonal(i, j);
     });
 
+    // on mouse leave remove the class blue, that was applied on mouseenter
     cell.addEventListener("mouseleave", function (event) {
-        console.log("8888", cell, event.target, i, j);
         colorDiagonal(i, j);
-      });
+    });
   }
 }
