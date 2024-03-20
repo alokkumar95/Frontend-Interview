@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Data</p>
+    <script>
+const map = new Map();
+map.set("foo", "bar");
+
+const cloned = structuredClone(map);
+console.log(JSON.parse(cloned))
+
+let person = {
+    name:'John Doe',
+    address:{
+        country:"India",
+        city: new Set(['Chennai','Bangalore']),
+        pincode:function(){
+            return 560100;
+        }
+    }
+}
+
+// use JSON.stringify
+console.log(JSON.stringify(person))
+
+// use structuredClone
+console.log(structuredClone(person))
+
+
+
+    </script>
+</body>
+</html>
