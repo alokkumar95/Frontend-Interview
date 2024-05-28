@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            text-align: center;
+            font-size: 18px;
+            border: 2px solid violet;
+            width: 50%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="target">Target Element</p>
+    </div>
+    <script>
+        document.body.onload = addElement;
+
+        function insertAfter(newNode,referenceNode){
+
+            // get next sibling node of reference node
+            const next_sibling_node = referenceNode.nextSibling;
+
+            const parent_node = referenceNode.parentNode;
+
+            // use insertBefore on next sibling node
+            // so it works like insertAfter referenceNode 
+            parent_node.insertBefore(newNode,next_sibling_node);
+        }
+
+        function addElement(){
+
+            const newNode = document.createElement('p');
+
+            newNode.textContent = 'New Node to be inserted after - ***';
+
+            const target = document.querySelector('.target');
+            console.log("---",target.nextSibling)
+
+            insertAfter(newNode,target)
+
+        }
+    </script>
+    
+</body>
+</html>
